@@ -108,6 +108,9 @@
             해양 탐사를 위한 수중 영상 객체 분할 모델(학사졸업논문)
             <a href="https://github.com/piyakks/Underwater-Image-Object-Segmentation-Model-for-Ocean-Exploration?tab=readme-ov-file" target="_blank">
             GitHub 링크 보기
+            목표: 수중 영상 데이터에서도 높은 분할 성능을 내는 영상 객체 분할 모델을 개발.수중 영상 특유의 색상 왜곡, 조명 불균일성에도 강건한 분할 성능.
+            문제점: 공개된 수중 데이터셋은 상대적으로 적음. 따라서 직접 학습만으로는 일반화가 어렵고 미세조정으로도 기존 가중치가 오히려 왜곡될 수 있는 문제점. 
+            해결법: 기존 모델의 가중치를 이용하면선 ControlNet에서 이용하는 제로 컨볼루션 미세조정(fine_tuning)기법을 이용하여 원래 가중치 성능을 보존하면서 수중 도메인 특성에 맞는 모델 설계
             </a>
             </div>
             <div class="proj">
@@ -166,7 +169,6 @@
           <a class="btn" href="https://www.notion.so/2b652dff79a08034adaffc3200e6efae?source=copy_link" target="_blank">
         이력서
         </a>
-
         </div>
       </aside>
     </div>

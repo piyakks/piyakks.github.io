@@ -161,13 +161,14 @@ PyTorch 기반 모델 구현, 약지도 학습(Weakly Supervised Learning), 대�
               
                 <p><strong>목표</strong></p>
                 <div class="inner-indent">
-                  기존 SAM은 객체 분할 분야에서 높은 수준의 성능을 보이지만 학습하지 못한 데이터(ex.의료 데이터)에 대해선 그 성능을 발휘하지 못함<div class=""></div>
-                  성능 높은 Polyp Segmentation
+                  기존 SAM은 범용 객체 분할에서 뛰어난 성능을 보이지만, 의료 영상과 같이 학습되지 않은 도메인에서는 성능이 저하됨<div class=""></div>
+                  의료 영상용 고성능 Polyp Segmentation 모델 개발
                 </div>
               
                 <p><strong>문제점</strong></p>
                 <div class="inner-indent">
-                 기존 SAM와 같은 대형 Foundation Model의 전체 학습은 막대한 메모리와 연산 자원, 느린 학습 속도, 높은 비용이 요구된다는 단점이 존재
+                 SAM과 같은 대형 Foundation Model을 전체 미세조정(Fine-tuning)<br>
+                  → 막대한 메모리·연산 자원, 긴 학습 시간, 높은 비용이 필요함
                 </div>
               
                 <p><strong>해결법</strong></p>

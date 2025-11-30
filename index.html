@@ -151,7 +151,7 @@ PyTorch 기반 모델 구현, 약지도 학습(Weakly Supervised Learning), 대�
                 </div>
               </div>
             <div class="proj"></div>
-            <h3>2.SAM2,Lora와 Mamba를 이용한 Polyp Segmentation -개인 프로젝트 </h3>
+            <h3>2.SAM,Lora와 Mamba를 이용한 Polyp Segmentation -개인 프로젝트 </h3>
 
             <a href="https://github.com/piyakks/polyp_seg_"
                  target="_blank">
@@ -161,18 +161,18 @@ PyTorch 기반 모델 구현, 약지도 학습(Weakly Supervised Learning), 대�
               
                 <p><strong>목표</strong></p>
                 <div class="inner-indent">
-                  기존 SAM,SAM2는 객체 분할 분야에서 높은 수준의 성능을 보이지만 학습하지 못한 데이터(ex.의료 데이터)에 대해선 그 성능을 발휘하지 못함<div class=""></div>
+                  기존 SAM은 객체 분할 분야에서 높은 수준의 성능을 보이지만 학습하지 못한 데이터(ex.의료 데이터)에 대해선 그 성능을 발휘하지 못함<div class=""></div>
                   성능 높은 Polyp Segmentation
                 </div>
               
                 <p><strong>문제점</strong></p>
                 <div class="inner-indent">
-                 기존 SAM·SAM2 같은 대형 Foundation Model의 전체 학습은 막대한 메모리와 연산 자원, 느린 학습 속도, 높은 비용이 요구된다는 단점이 존재
+                 기존 SAM와 같은 대형 Foundation Model의 전체 학습은 막대한 메모리와 연산 자원, 느린 학습 속도, 높은 비용이 요구된다는 단점이 존재
                 </div>
               
                 <p><strong>해결법</strong></p>
                 <div class="inner-indent">
-                  Mamba와 Lora구조를 통한 PEFT 기반 파인튜닝
+                  Mamba와 Lora구조를 통한 PEFT(Parameter-Efficient Fine-Tuning)기반 모델 학습
                 </div>
                 <p><strong>결과</strong></p>
                 <div class="inner-indent">
@@ -187,17 +187,17 @@ PyTorch 기반 모델 구현, 약지도 학습(Weakly Supervised Learning), 대�
               
                 <p><strong>목표</strong></p>
                 <div class="inner-indent">
-                  
+                  스크리블 기반 약지도학습을 통한 위장 객체 검출 모델(camouflage Object Dection Model) 생성 
                 </div>
               
                 <p><strong>문제점</strong></p>
                 <div class="inner-indent">
-                 기존에 SAM,SAM2같은 대형 foundation model을 학습하는데 어뎁터
+                  스크리블은 만들기는 간단하나 객체에 대한 정보를 적게 가지고 있어 학습에 불리하다. 
                 </div>
               
                 <p><strong>해결법</strong></p>
                 <div class="inner-indent">
-                  
+                  스크리블과 SAM을 활용해 유사주석을 만들고 학습에 이용
                 </div>
                 <p><strong>결과</strong></p>
                 <div class="inner-indent">

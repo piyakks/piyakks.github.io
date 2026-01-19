@@ -162,6 +162,7 @@
                         <p style="color:var(--primary); font-weight:600;">AI Researcher & Developer</p>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <p>
                     안녕하세요. 영상 처리와 딥러닝 기반 객체 분할 모델을 연구하고 있습니다.<br><br>
                     누구나 어떠한 환경에서든 손쉽게 사용할 수 있는 <strong>경량화 AI 기술</strong>을 지향합니다. 
@@ -174,6 +175,128 @@
                 <span class="tag">Weakly Supervised Learning</span>
                 <span class="tag">SAM</span>
             </div>
+=======
+              
+                <p><strong>문제점</strong></p>
+                <div class="inner-indent">
+                  공개된 수중 데이터셋이 적어 일반화가 어렵다.<br>
+                  적은 데이터셋으로 인해 Fine-tuning 과정에서 기존 사전학습 가중치가 왜곡될 수 있다.
+                </div>
+              
+                <p><strong>해결법</strong></p>
+                <div class="inner-indent">
+                  기존 가중치를 그대로 유지한 상태에서 ControlNet의 제로-컨볼루션 기반 미세조정 기법을 적용한다.<br>
+                  이를 통해 원래 성능은 보존하면서 수중 도메인 특성을 반영한다.
+                </div>
+                <p><strong>결과</strong></p>
+                <div class="inner-indent">
+                  기존 모델보다 높은 성능의 모델 생성 자세한 내용은 github링크 참조
+                </div>
+              </div>
+            <div class="proj"></div>
+            <h3>2.SAM,Lora와 Mamba를 이용한 Polyp Segmentation -개인 프로젝트 </h3>
+
+            <a href="https://github.com/piyakks/polyp_seg_"
+                 target="_blank">
+                GitHub 링크 보기
+              </a>
+              <div class="block-indent">
+              
+                <p><strong>목표</strong></p>
+                <div class="inner-indent">
+                  기존 SAM은 범용 객체 분할에서 뛰어난 성능을 보이지만, 의료 영상과 같이 학습되지 않은 도메인에서는 성능이 저하됨<div class=""></div>
+                  의료 영상용 고성능 Polyp Segmentation 모델 개발
+                </div>
+              
+                <p><strong>문제점</strong></p>
+                <div class="inner-indent">
+                 SAM과 같은 대형 Foundation Model을 전체 미세조정(Fine-tuning)<br>
+                  → 막대한 메모리·연산 자원, 긴 학습 시간, 높은 비용이 필요함
+                </div>
+              
+                <p><strong>해결법</strong></p>
+                <div class="inner-indent">
+                  Mamba와 Lora구조를 통한 PEFT(Parameter-Efficient Fine-Tuning)기반 모델 학습
+                </div>
+                <p><strong>결과</strong></p>
+                <div class="inner-indent">
+                  적은 학습량으로 기존 모델보다 높은 성능의 모델 생성 자세한 내용은 github링크 참조
+                </div>
+              </div>
+            <div class="proj"></div>
+            <h3>3.맘바와 트랜스포머를 활용한 스크리블 및 유사 주석 기반 약지도 위장 객체 검출-석사졸업논문 </h3>
+              <a href="https://github.com/piyakks/MaDiCa"
+                 target="_blank">
+                GitHub 링크 보기
+              </a>
+              <div class="block-indent">
+              
+                <p><strong>목표</strong></p>
+                <div class="inner-indent">
+                  스크리블 기반 약지도학습을 통한 위장 객체 검출 모델(camouflage Object Dection Model) 생성 
+                </div>
+              
+                <p><strong>문제점</strong></p>
+                <div class="inner-indent">
+                  스크리블은 만들기는 간단하나 객체에 대한 정보를 적게 가지고 있어 학습에 불리하다. 
+                </div>
+              
+                <p><strong>해결법</strong></p>
+                <div class="inner-indent">
+                  스크리블과 SAM을 활용해 유사주석을 만들고 학습에 이용<br>
+                  
+                </div>
+                <p><strong>결과</strong></p>
+                <div class="inner-indent">
+                  적은 연산량과 모델 파라미터를 가진 약지도학습 위장 객체 검출 모델 생성
+                </div>
+              </div>
+            <div class="proj"></div>
+
+            </div>
+
+          </div>
+        </section>
+        <section id="research" class="card" style="margin-top:16px">
+          <div class="section-title">Research & publications (selected)</div>
+          <ul>
+            <li>
+            ScribbleSAM: Weakly supervised salient object detection and localization in remote sensing images using Transformer and Segment Anything Model. 
+            Journal of Computational Design and Engineering, 2025, Vol.12, No.9, pp.1–20. 
+            <a href="https://doi.org/10.1093/jcde/qwaf081" target="_blank">
+            https://doi.org/10.1093/jcde/qwaf081
+              </a>
+            </li>
+            <!-- <li></li>
+            <li></li> -->
+          </ul>
+        </section>
+
+        <section id="skills" class="card" style="margin-top:16px">
+          <div class="section-title">Skills</div>
+          <div class="skill-list">
+            <span class="chip">PyTorch</span>
+            <span class="chip">Python</span>
+            <span class="chip">Weakly Supervised Learning</span>
+            <span class="chip">Image Segmentation</span>
+            <span class="chip">Salient Object Detection</span>
+            <span class="chip">Transformer</span>
+            <span class="chip">Mamba</span>
+            <span class="chip">Git / GitHub</span>
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <div class="section-title">Contact</div>
+          <p style="margin:0 0 8px">이름:이태훈</p>
+          <p style="margin:0 0 8px">이메일: <a href="mailto:yuyu3047@naver.com" style="color:inherit">yuyu3047@naver.com</a></p>
+          <p style="margin:0 0 8px">전화: 010-9808-3047</p>
+          <p style="margin:0 0 8px">LinkedIn: <a href="https://www.linkedin.com/in/%ED%83%9C%ED%9B%88-%EC%9D%B4-358536265/" style="color:inherit">프로필 연결</a></p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px"></p>
+>>>>>>> 3993633e9e3da9e20224cf0d660747eb3826ddef
         </div>
 
         <div class="card col-1">

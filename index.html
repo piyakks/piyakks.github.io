@@ -8,11 +8,11 @@
     <style>
         :root {
             --bg-color: #f8f9fa;
-            --card-bg: rgba(255, 255, 255, 0.85); /* 유리 같은 반투명 효과 */
+            --card-bg: rgba(255, 255, 255, 0.9);
             --primary: #5456e3;
             --text-main: #171719;
             --text-sub: #8b8d96;
-            --border: #ffffff; /* 테두리는 흰색으로 깔끔하게 */
+            --border: #e6e8eb;
         }
 
         * { box-sizing: border-box; }
@@ -28,10 +28,10 @@
             position: relative;
             background-color: #f0f2f5;
             
-            /* 1. 은은한 오로라 배경 효과 */
+            /* 배경: 은은한 오로라 효과 유지 */
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(84, 86, 227, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(84, 86, 227, 0.05) 0%, transparent 40%);
         }
 
         /* 오른쪽 내비게이션 바 */
@@ -85,12 +85,12 @@
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px); /* 카드 뒤가 살짝 비치는 효과 */
-            border-radius: 28px; /* 더 둥글게 */
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
             padding: 32px;
-            border: 2px solid var(--border);
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); /* 부드러운 그림자 */
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.03);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
             display: flex; flex-direction: column; justify-content: space-between;
             overflow: hidden; position: relative;
             scroll-margin-top: 80px;
@@ -98,30 +98,23 @@
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
             z-index: 10;
         }
 
         /* ----------------------------------------------------------------
-           2. 프로필 카드 전용 스타일 (강조색 + 흰색 글씨)
+           ★ 중요: 프로필 카드 강조 스타일 (흰색 배경 + 보라색 테두리/빛)
            ---------------------------------------------------------------- */
         #profile {
-            background: linear-gradient(135deg, #6c5ce7, #5456e3); /* 보라 -> 파랑 그라디언트 */
-            color: white;
-            border: none;
-            box-shadow: 0 20px 40px rgba(84, 86, 227, 0.3); /* 빛나는 그림자 효과 */
+            /* 배경은 깨끗한 흰색 */
+            background: white; 
+            
+            /* 테두리를 진한 보라색으로 강조 */
+            border: 2px solid #6c5ce7; 
+            
+            /* 주변부로 퍼지는 보랏빛 그림자 (Glow Effect) */
+            box-shadow: 0 12px 40px -8px rgba(108, 92, 231, 0.25);
         }
-        #profile h1, #profile h3, #profile p { color: white !important; }
-        #profile .avatar {
-            background: white; color: var(--primary); /* 아바타 색상 반전 */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        #profile .tag {
-            background: rgba(255,255,255,0.2); /* 반투명 태그 */
-            color: white;
-            backdrop-filter: blur(4px);
-        }
-        #profile .small-text { color: rgba(255,255,255,0.8); }
 
         /* 그리드 시스템 */
         .col-1 { grid-column: span 1; }
@@ -141,7 +134,11 @@
             border-radius: 24px;
             display: flex; align-items: center; justify-content: center;
             font-size: 32px; font-weight: bold; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--primary), #7c3aed); color: white;
+            
+            /* 아바타 자체는 색상 유지 */
+            background: linear-gradient(135deg, var(--primary), #7c3aed); 
+            color: white;
+            box-shadow: 0 8px 16px rgba(108, 92, 231, 0.3);
         }
 
         .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 16px; }
@@ -213,20 +210,21 @@
         <div id="profile" class="card col-2 row-2">
             <div>
                 <div class="profile-header">
-                    <div class="avatar">이</div> <div>
+                    <div class="avatar">이</div>
+                    <div>
                         <h1>이태훈</h1>
-                        <p style="opacity: 0.9; font-weight:500;">AI Researcher & Developer</p>
+                        <p style="color:var(--primary); font-weight:600;">AI Researcher & Developer</p>
                     </div>
                 </div>
-                <p style="opacity: 0.9;">
+                <p>
                     안녕하세요. 영상 처리와 딥러닝 기반 객체 분할 모델을 연구하고 있습니다.<br><br>
                     누구나 어떠한 환경에서든 손쉽게 사용할 수 있는 <strong>경량화 AI 기술</strong>을 지향합니다. 
                     현재는 Mamba 구조를 활용한 객체 분할 모델 개발에 집중하고 있습니다.
                 </p>
             </div>
             <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">PyTorch</span>
+                <span class="tag accent">Python</span>
+                <span class="tag accent">PyTorch</span>
                 <span class="tag">Weakly Supervised</span>
                 <span class="tag">SAM</span>
             </div>
@@ -261,7 +259,7 @@
             <div class="tags" style="padding-top:0;">
                 <span class="tag accent">Segmentation</span>
                 <span class="tag accent">Mamba</span>
-                <span class="tag">Transformer</span>
+                <span class="tag accent">Transformer</span>
                 <span class="tag">Git</span>
             </div>
         </div>

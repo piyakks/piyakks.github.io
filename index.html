@@ -28,13 +28,13 @@
             position: relative;
             background-color: #f0f2f5;
             
-            /* 배경: 은은한 오로라 효과 유지 */
+            /* 오로라 배경 */
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(84, 86, 227, 0.05) 0%, transparent 40%);
         }
 
-        /* 오른쪽 내비게이션 바 */
+        /* 오른쪽 내비게이션 */
         .right-nav {
             position: fixed;
             right: 30px; top: 50%; transform: translateY(-50%);
@@ -72,7 +72,7 @@
 
         @media (max-width: 1200px) { .right-nav { display: none; } }
 
-        /* 벤토 그리드 레이아웃 */
+        /* 벤토 그리드 컨테이너 */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -102,24 +102,16 @@
             z-index: 10;
         }
 
-        /* ----------------------------------------------------------------
-           ★ 중요: 프로필 카드 강조 스타일 (흰색 배경 + 보라색 테두리/빛)
-           ---------------------------------------------------------------- */
+        /* 프로필 카드 강조 스타일 (흰색 배경 + 보라색 글로우) */
         #profile {
-            /* 배경은 깨끗한 흰색 */
             background: white; 
-            
-            /* 테두리를 진한 보라색으로 강조 */
             border: 2px solid #6c5ce7; 
-            
-            /* 주변부로 퍼지는 보랏빛 그림자 (Glow Effect) */
             box-shadow: 0 12px 40px -8px rgba(108, 92, 231, 0.25);
         }
 
-        /* 그리드 시스템 */
         .col-1 { grid-column: span 1; }
         .col-2 { grid-column: span 2; }
-        .col-4 { grid-column: span 4; }
+        .col-4 { grid-column: span 4; } /* 전체 너비 */
         .row-2 { grid-row: span 2; }
 
         h1 { font-size: 28px; margin: 0 0 8px 0; letter-spacing: -0.5px; }
@@ -134,8 +126,6 @@
             border-radius: 24px;
             display: flex; align-items: center; justify-content: center;
             font-size: 32px; font-weight: bold; flex-shrink: 0;
-            
-            /* 아바타 자체는 색상 유지 */
             background: linear-gradient(135deg, var(--primary), #7c3aed); 
             color: white;
             box-shadow: 0 8px 16px rgba(108, 92, 231, 0.3);
@@ -168,12 +158,11 @@
         }
         .contact-list a:hover { color: var(--primary); font-weight: 500; }
 
-        .edu-item { margin-bottom: 16px; }
-        .edu-item:last-child { margin-bottom: 0; }
-        .edu-school { font-weight: 700; color: var(--text-main); font-size: 16px; }
-        .edu-period { font-size: 13px; color: #9ca3af; margin-left: 6px; font-weight: 400; }
+        .edu-item { display: flex; align-items: center; margin-bottom: 8px; flex-wrap: wrap;}
+        .edu-school { font-weight: 700; color: var(--text-main); font-size: 16px; margin-right: 8px; }
+        .edu-period { font-size: 13px; color: #9ca3af; background: #f1f3f5; padding: 2px 8px; border-radius: 4px; }
+        .edu-desc { width: 100%; font-size: 14px; color: var(--text-sub); margin-top: 4px; }
 
-        /* 섹션 구분 헤더 */
         .section-header {
             grid-column: span 4;
             margin-top: 60px; margin-bottom: 20px;
@@ -201,6 +190,7 @@
 
     <nav class="right-nav">
         <a href="#profile" class="nav-item" data-tooltip="Profile">👤</a>
+        <a href="#education" class="nav-item" data-tooltip="Education">🎓</a>
         <a href="#projects" class="nav-item" data-tooltip="Projects">📂</a>
         <a href="#publications" class="nav-item" data-tooltip="Papers">📜</a>
     </nav>
@@ -231,36 +221,45 @@
         </div>
 
         <div class="card col-2">
-            <h2>🎓 Education</h2>
-            <div style="margin-top:12px;">
-                <div class="edu-item">
-                    <div class="edu-school">OO대학교 일반대학원 <span class="edu-period">202X.03 - 202X.02</span></div>
-                    <p class="small-text">인공지능학과 석사 졸업 (전공: Computer Vision)</p>
-                </div>
-                <div class="edu-item">
-                    <div class="edu-school">OO대학교 <span class="edu-period">201X.03 - 202X.02</span></div>
-                    <p class="small-text">컴퓨터공학과 학사 졸업</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card col-1">
             <h2>Contact</h2>
-            <div class="contact-list" style="margin-top:12px;">
-                <a href="mailto:yuyu3047@naver.com">📧 Email</a>
+            <div class="contact-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="mailto:yuyu3047@naver.com">📧 yuyu3047@naver.com</a>
                 <a href="tel:010-9808-3047">📞 010-9808-3047</a>
-                <a href="https://github.com/piyakks" target="_blank">🐙 GitHub</a>
-                <a href="https://www.notion.so/2b652dff79a08034adaffc3200e6efae" target="_blank">📝 Resume</a>
+                <a href="https://github.com/piyakks" target="_blank">🐙 GitHub Profile</a>
+                <a href="https://www.notion.so/2b652dff79a08034adaffc3200e6efae" target="_blank">📝 Resume (Notion)</a>
             </div>
         </div>
 
-        <div class="card col-1">
+        <div class="card col-2">
             <h2>Skills</h2>
             <div class="tags" style="padding-top:0;">
                 <span class="tag accent">Segmentation</span>
                 <span class="tag accent">Mamba</span>
                 <span class="tag accent">Transformer</span>
                 <span class="tag">Git</span>
+                <span class="tag">Matlab → Python</span>
+                <span class="tag">Weakly Supervised</span>
+            </div>
+        </div>
+
+
+        <div id="education" class="card col-4">
+            <h2 style="margin-bottom: 20px;">🎓 Education</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div style="border-left: 3px solid var(--primary); padding-left: 16px;">
+                    <div class="edu-item">
+                        <span class="edu-school">OO대학교 일반대학원</span>
+                        <span class="edu-period">202X.03 - 202X.02</span>
+                    </div>
+                    <div class="edu-desc">인공지능학과 석사 졸업 (전공: Computer Vision)</div>
+                </div>
+                <div style="border-left: 3px solid #d1d5db; padding-left: 16px;">
+                    <div class="edu-item">
+                        <span class="edu-school">OO대학교</span>
+                        <span class="edu-period">201X.03 - 202X.02</span>
+                    </div>
+                    <div class="edu-desc">컴퓨터공학과 학사 졸업</div>
+                </div>
             </div>
         </div>
 

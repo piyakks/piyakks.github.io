@@ -17,9 +17,7 @@
 
         * { box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth; /* 부드러운 스크롤 핵심 */
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
@@ -31,9 +29,7 @@
             position: relative;
         }
 
-        /* ------------------------------------------------
-           오른쪽 플로팅 내비게이션 바 스타일
-           ------------------------------------------------ */
+        /* 오른쪽 플로팅 내비게이션 바 */
         .right-nav {
             position: fixed;
             right: 30px;
@@ -44,7 +40,7 @@
             gap: 12px;
             z-index: 100;
             background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px); /* 유리처럼 흐리게 */
+            backdrop-filter: blur(10px);
             padding: 16px 12px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -52,63 +48,41 @@
         }
 
         .nav-item {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
             border-radius: 50%;
-            text-decoration: none;
-            color: var(--text-sub);
-            transition: all 0.3s ease;
-            font-size: 18px;
-            position: relative;
+            text-decoration: none; color: var(--text-sub);
+            transition: all 0.3s ease; font-size: 18px; position: relative;
         }
 
         .nav-item:hover, .nav-item.active {
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--primary); color: white;
             box-shadow: 0 4px 10px rgba(84, 86, 227, 0.3);
         }
 
-        /* 툴팁 (마우스 올리면 글자 나옴) */
         .nav-item::after {
             content: attr(data-tooltip);
-            position: absolute;
-            right: 50px;
-            background: #171719;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 12px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateX(10px);
-            transition: all 0.2s ease;
+            position: absolute; right: 50px;
+            background: #171719; color: white;
+            padding: 4px 8px; border-radius: 6px; font-size: 12px;
+            opacity: 0; pointer-events: none;
+            transform: translateX(10px); transition: all 0.2s ease;
             white-space: nowrap;
         }
 
-        .nav-item:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .nav-item:hover::after { opacity: 1; transform: translateX(0); }
 
-        /* 모바일에서는 내비게이션 숨김 (공간 부족) */
-        @media (max-width: 1200px) {
-            .right-nav { display: none; }
-        }
+        @media (max-width: 1200px) { .right-nav { display: none; } }
 
-
-        /* ------------------------------------------------
-           기존 벤토 그리드 스타일
-           ------------------------------------------------ */
+        /* 벤토 그리드 레이아웃 */
         .container {
-            max-width: 1100px; /* 내비게이션 공간 확보를 위해 살짝 줄임 */
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             grid-auto-flow: dense;
+            padding-bottom: 60px; /* 하단 여백 추가 */
         }
 
         .card {
@@ -117,12 +91,9 @@
             padding: 28px;
             border: 1px solid var(--border);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-            scroll-margin-top: 20px; /* 클릭해서 이동했을 때 여백 확보 */
+            display: flex; flex-direction: column; justify-content: space-between;
+            overflow: hidden; position: relative;
+            scroll-margin-top: 20px;
         }
 
         .card:hover {
@@ -133,8 +104,6 @@
 
         .col-1 { grid-column: span 1; }
         .col-2 { grid-column: span 2; }
-        .col-3 { grid-column: span 3; }
-        .col-4 { grid-column: span 4; }
         .row-2 { grid-row: span 2; }
 
         h1 { font-size: 28px; margin: 0 0 8px 0; letter-spacing: -0.5px; }
@@ -166,13 +135,28 @@
         .contact-list a { display: block; color: var(--text-sub); text-decoration: none; margin-bottom: 8px; font-size: 14px; }
         .contact-list a:hover { color: var(--primary); }
 
+        /* 교육 섹션 스타일 */
+        .edu-item { margin-bottom: 12px; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-school { font-weight: 600; color: var(--text-main); font-size: 16px; }
+        .edu-period { font-size: 13px; color: #9ca3af; margin-left: 6px; }
+
+        /* 섹션 구분 타이틀 (선택 사항) */
+        .section-header {
+            grid-column: span 4;
+            margin-top: 40px; margin-bottom: 10px;
+            font-size: 24px; font-weight: 700; color: var(--text-main);
+        }
+
         @media (max-width: 1024px) {
             .container { grid-template-columns: repeat(2, 1fr); }
-            .col-3, .col-4 { grid-column: span 2; }
+            .col-2 { grid-column: span 2; }
+            .section-header { grid-column: span 2; }
         }
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; gap: 16px; }
-            .col-1, .col-2, .col-3, .col-4 { grid-column: span 1; }
+            .col-1, .col-2 { grid-column: span 1; }
+            .section-header { grid-column: span 1; margin-top: 20px; }
             .card { padding: 24px; }
         }
     </style>
@@ -181,11 +165,8 @@
 
     <nav class="right-nav">
         <a href="#profile" class="nav-item" data-tooltip="Profile">👤</a>
-        <a href="#contact" class="nav-item" data-tooltip="Contact">✉️</a>
-        <a href="#skills" class="nav-item" data-tooltip="Skills">🛠️</a>
-        <a href="#project-1" class="nav-item" data-tooltip="Underwater Seg">🌊</a>
-        <a href="#project-2" class="nav-item" data-tooltip="Polyp Seg">💊</a>
-        <a href="#project-3" class="nav-item" data-tooltip="Camouflage">🦎</a>
+        <a href="#education" class="nav-item" data-tooltip="Education">🎓</a>
+        <a href="#projects" class="nav-item" data-tooltip="Projects">📂</a>
         <a href="#paper" class="nav-item" data-tooltip="Paper">📜</a>
     </nav>
 
@@ -214,47 +195,62 @@
             </div>
         </div>
 
+        <div id="education" class="card col-2">
+            <h2>🎓 Education</h2>
+            <div style="margin-top:8px;">
+                <div class="edu-item">
+                    <div class="edu-school">OO대학교 일반대학원 <span class="edu-period">202X.03 - 202X.02</span></div>
+                    <p class="small-text">인공지능학과 석사 졸업 (전공: Computer Vision)</p>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-school">OO대학교 <span class="edu-period">201X.03 - 202X.02</span></div>
+                    <p class="small-text">컴퓨터공학과 학사 졸업</p>
+                </div>
+            </div>
+        </div>
+
         <div id="contact" class="card col-1">
             <h2>Contact</h2>
             <div class="contact-list">
-                <a href="mailto:yuyu3047@naver.com">📧 yuyu3047@naver.com</a>
+                <a href="mailto:yuyu3047@naver.com">📧 Email</a>
                 <a href="tel:010-9808-3047">📞 010-9808-3047</a>
-                <a href="https://github.com/piyakks" target="_blank">🐙 GitHub Profile</a>
-                <a href="https://www.notion.so/2b652dff79a08034adaffc3200e6efae" target="_blank">📝 Notion Resume</a>
+                <a href="https://github.com/piyakks" target="_blank">🐙 GitHub</a>
+                <a href="https://www.notion.so/2b652dff79a08034adaffc3200e6efae" target="_blank">📝 Resume</a>
             </div>
         </div>
 
         <div id="skills" class="card col-1">
             <h2>Skills</h2>
             <div class="tags" style="padding-top:0;">
-                <span class="tag">Image Segmentation</span>
-                <span class="tag">Salient Object Detection</span>
-                <span class="tag">Transformer</span>
+                <span class="tag">Segmentation</span>
                 <span class="tag">Mamba</span>
-                <span class="tag">Git / GitHub</span>
-                <span class="tag">Matlab -> Python</span>
+                <span class="tag">Transformer</span>
+                <span class="tag">Git</span>
             </div>
         </div>
 
-        <div id="project-1" class="card col-2">
+
+        <div id="projects" class="section-header">Projects & Research</div>
+
+        <div class="card col-2">
             <div>
                 <h3>🌊 수중 영상 객체 분할 모델</h3>
                 <p class="small-text">학사졸업논문 | ControlNet 제로-컨볼루션 활용</p>
                 <div class="project-detail">
                     <div class="detail-row">
                         <span class="detail-label">문제</span>
-                        <span>수중 데이터 부족 및 색상 왜곡으로 인한 성능 저하</span>
+                        <span>수중 데이터 부족 및 색상 왜곡으로 성능 저하</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
-                        <span>기존 가중치 유지 + ControlNet 미세조정 기법 적용</span>
+                        <span>기존 가중치 유지 + ControlNet 미세조정</span>
                     </div>
                 </div>
             </div>
             <a href="https://github.com/piyakks/Underwater-Image-Object-Segmentation-Model-for-Ocean-Exploration?tab=readme-ov-file" target="_blank" class="btn-link">GitHub 보러가기 →</a>
         </div>
 
-        <div id="project-2" class="card col-2">
+        <div class="card col-2">
             <div>
                 <h3>💊 SAM + Mamba Polyp Seg</h3>
                 <p class="small-text">개인 프로젝트 | PEFT 기반 경량화</p>
@@ -265,14 +261,14 @@
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
-                        <span>Mamba와 LoRA 구조를 결합하여 파라미터 효율적 학습</span>
+                        <span>Mamba와 LoRA 결합하여 파라미터 효율적 학습</span>
                     </div>
                 </div>
             </div>
             <a href="https://github.com/piyakks/polyp_seg_" target="_blank" class="btn-link">GitHub 보러가기 →</a>
         </div>
 
-        <div id="project-3" class="card col-2">
+        <div class="card col-2">
             <div>
                 <h3>🦎 위장 객체(Camouflage) 검출</h3>
                 <p class="small-text">석사졸업논문 | Scribble 기반 약지도 학습</p>
@@ -283,7 +279,7 @@
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
-                        <span>SAM을 활용해 유사 주석(Pseudo-label) 생성 및 학습</span>
+                        <span>SAM 활용 유사 주석(Pseudo-label) 생성 및 학습</span>
                     </div>
                 </div>
             </div>

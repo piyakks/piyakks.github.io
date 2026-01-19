@@ -29,20 +29,13 @@
             position: relative;
         }
 
-        /* 오른쪽 플로팅 내비게이션 바 */
+        /* 오른쪽 내비게이션 바 */
         .right-nav {
             position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 16px 12px;
-            border-radius: 30px;
+            right: 30px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 12px; z-index: 100;
+            background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);
+            padding: 16px 12px; border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
@@ -82,7 +75,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
             grid-auto-flow: dense;
-            padding-bottom: 60px; /* 하단 여백 추가 */
+            padding-bottom: 80px;
         }
 
         .card {
@@ -93,7 +86,7 @@
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             display: flex; flex-direction: column; justify-content: space-between;
             overflow: hidden; position: relative;
-            scroll-margin-top: 20px;
+            scroll-margin-top: 80px; /* 헤더에 가려지지 않게 여백 확보 */
         }
 
         .card:hover {
@@ -104,6 +97,7 @@
 
         .col-1 { grid-column: span 1; }
         .col-2 { grid-column: span 2; }
+        .col-4 { grid-column: span 4; } /* 전체 너비 차지 */
         .row-2 { grid-row: span 2; }
 
         h1 { font-size: 28px; margin: 0 0 8px 0; letter-spacing: -0.5px; }
@@ -135,28 +129,32 @@
         .contact-list a { display: block; color: var(--text-sub); text-decoration: none; margin-bottom: 8px; font-size: 14px; }
         .contact-list a:hover { color: var(--primary); }
 
-        /* 교육 섹션 스타일 */
+        /* 학력 스타일 */
         .edu-item { margin-bottom: 12px; }
         .edu-item:last-child { margin-bottom: 0; }
         .edu-school { font-weight: 600; color: var(--text-main); font-size: 16px; }
         .edu-period { font-size: 13px; color: #9ca3af; margin-left: 6px; }
 
-        /* 섹션 구분 타이틀 (선택 사항) */
+        /* 섹션 구분 헤더 스타일 */
         .section-header {
             grid-column: span 4;
-            margin-top: 40px; margin-bottom: 10px;
-            font-size: 24px; font-weight: 700; color: var(--text-main);
+            margin-top: 60px; margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6e8eb;
+            display: flex; justify-content: space-between; align-items: flex-end;
         }
+        .section-title { font-size: 24px; font-weight: 800; color: var(--text-main); }
+        .section-desc { font-size: 14px; color: var(--text-sub); }
 
         @media (max-width: 1024px) {
             .container { grid-template-columns: repeat(2, 1fr); }
             .col-2 { grid-column: span 2; }
-            .section-header { grid-column: span 2; }
+            .col-4, .section-header { grid-column: span 2; }
         }
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; gap: 16px; }
-            .col-1, .col-2 { grid-column: span 1; }
-            .section-header { grid-column: span 1; margin-top: 20px; }
+            .col-1, .col-2, .col-4 { grid-column: span 1; }
+            .section-header { grid-column: span 1; margin-top: 40px; }
             .card { padding: 24px; }
         }
     </style>
@@ -165,9 +163,8 @@
 
     <nav class="right-nav">
         <a href="#profile" class="nav-item" data-tooltip="Profile">👤</a>
-        <a href="#education" class="nav-item" data-tooltip="Education">🎓</a>
         <a href="#projects" class="nav-item" data-tooltip="Projects">📂</a>
-        <a href="#paper" class="nav-item" data-tooltip="Paper">📜</a>
+        <a href="#publications" class="nav-item" data-tooltip="Papers">📜</a>
     </nav>
 
     <div class="container">
@@ -195,7 +192,7 @@
             </div>
         </div>
 
-        <div id="education" class="card col-2">
+        <div class="card col-2">
             <h2>🎓 Education</h2>
             <div style="margin-top:8px;">
                 <div class="edu-item">
@@ -209,7 +206,7 @@
             </div>
         </div>
 
-        <div id="contact" class="card col-1">
+        <div class="card col-1">
             <h2>Contact</h2>
             <div class="contact-list">
                 <a href="mailto:yuyu3047@naver.com">📧 Email</a>
@@ -219,7 +216,7 @@
             </div>
         </div>
 
-        <div id="skills" class="card col-1">
+        <div class="card col-1">
             <h2>Skills</h2>
             <div class="tags" style="padding-top:0;">
                 <span class="tag">Segmentation</span>
@@ -230,7 +227,10 @@
         </div>
 
 
-        <div id="projects" class="section-header">Projects & Research</div>
+        <div id="projects" class="section-header">
+            <span class="section-title">🚀 Projects</span>
+            <span class="section-desc">Development & Implementation</span>
+        </div>
 
         <div class="card col-2">
             <div>
@@ -239,7 +239,7 @@
                 <div class="project-detail">
                     <div class="detail-row">
                         <span class="detail-label">문제</span>
-                        <span>수중 데이터 부족 및 색상 왜곡으로 성능 저하</span>
+                        <span>수중 데이터 부족 및 색상 왜곡</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
@@ -257,11 +257,11 @@
                 <div class="project-detail">
                     <div class="detail-row">
                         <span class="detail-label">문제</span>
-                        <span>SAM 전체 미세조정 시 막대한 연산 자원 소요</span>
+                        <span>SAM 전체 미세조정의 높은 비용</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
-                        <span>Mamba와 LoRA 결합하여 파라미터 효율적 학습</span>
+                        <span>Mamba와 LoRA 결합하여 효율적 학습</span>
                     </div>
                 </div>
             </div>
@@ -275,11 +275,11 @@
                 <div class="project-detail">
                     <div class="detail-row">
                         <span class="detail-label">문제</span>
-                        <span>Scribble의 빈약한 정보를 보완할 방법 필요</span>
+                        <span>Scribble의 빈약한 정보량</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">해결</span>
-                        <span>SAM 활용 유사 주석(Pseudo-label) 생성 및 학습</span>
+                        <span>SAM 활용 유사 주석(Pseudo-label) 생성</span>
                     </div>
                 </div>
             </div>
@@ -288,12 +288,29 @@
             </div>
         </div>
 
-        <div id="paper" class="card col-2">
-            <h2>📜 Selected Publications</h2>
-            <div style="margin-top:10px;">
-                <p style="color:var(--text-main); font-weight:600; margin-bottom:4px;">ScribbleSAM (JCDE 2025)</p>
-                <p class="small-text">Weakly supervised salient object detection using Transformer & SAM.</p>
-                <a href="https://doi.org/10.1093/jcde/qwaf081" target="_blank" class="btn-link" style="margin-top:8px; font-size:13px;">논문 링크 바로가기 ↗</a>
+
+        <div id="publications" class="section-header">
+            <span class="section-title">📜 Publications</span>
+            <span class="section-desc">Academic Research Papers</span>
+        </div>
+
+        <div class="card col-4"> <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+                <div>
+                    <h3 style="font-size: 20px; color: var(--primary);">ScribbleSAM: Weakly supervised salient object detection</h3>
+                    <p style="margin-top:4px; color:#1f2937; font-weight:500;">
+                        Journal of Computational Design and Engineering (SCIE, IF X.X)
+                    </p>
+                    <p class="small-text" style="margin-top:4px;">
+                        Vol.12, No.9, pp.1–20, 2025
+                    </p>
+                </div>
+                <a href="https://doi.org/10.1093/jcde/qwaf081" target="_blank" class="btn-link" style="margin-top:0;">논문 보러가기 ↗</a>
+            </div>
+            
+            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed #e6e8eb;">
+                <p class="small-text">
+                    <strong>Abstract:</strong> 제안하는 모델은 Transformer와 Segment Anything Model(SAM)을 결합하여 Scribble 주석만으로도 높은 수준의 돌출 객체 검출(Salient Object Detection) 성능을 달성했습니다. 원격 탐사(Remote Sensing) 이미지 데이터셋에서 기존 SOTA 모델 대비 유의미한 성능 향상을 입증했습니다.
+                </p>
             </div>
         </div>
 

@@ -79,7 +79,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            grid-auto-flow: dense;
+
             padding-bottom: 80px;
         }
 
@@ -203,7 +203,11 @@
     font-weight: 800;
     margin-bottom: 4px;
     }
-
+    .sub-section {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
     .sub-section .section-desc {
     margin-bottom: 10px;
     }

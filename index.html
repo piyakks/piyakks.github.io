@@ -268,81 +268,110 @@
 
 
         <div id="projects" class="section-header">
-            <span class="section-title">🚀 Projects</span>
-            <span class="section-desc">Development & Implementation</span>
-        </div>
+    <span class="section-title">🚀 Projects</span>
+    <span class="section-desc">Research & System Development</span>
+</div>
 
-        <div class="card col-2">
-            <div>
-                <h3> 수중 영상 객체 분할 모델</h3>
-                <p class="small-text">학사졸업논문 | ControlNet 제로-컨볼루션 활용</p>
-                <div class="project-detail">
-                    <div class="detail-row">
-                        <span class="detail-label">문제</span>
-                        <span>수중 데이터 부족 및 색상 왜곡</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">해결</span>
-                        <span>기존 가중치 유지 + ControlNet 미세조정</span>
-                    </div>
-                </div>
-            </div>
-            <a href="https://github.com/piyakks/Underwater-Image-Object-Segmentation-Model-for-Ocean-Exploration?tab=readme-ov-file" target="_blank" class="btn-link">GitHub 보러가기 →</a>
-        </div>
+<!-- ================= CV ================= -->
+<div class="sub-section">
+    <h2>🧠 Computer Vision</h2>
+    <p class="section-desc"></p>
+</div>
 
-        <div class="card col-2">
-            <div>
-                <h3> SAM + Mamba Polyp Seg</h3>
-                <p class="small-text">개인 프로젝트 | PEFT 기반 경량화</p>
-                <div class="project-detail">
-                    <div class="detail-row">
-                        <span class="detail-label">문제</span>
-                        <span>SAM 전체 미세조정의 높은 비용</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">해결</span>
-                        <span>Mamba와 LoRA 결합하여 효율적 학습</span>
-                    </div>
-                </div>
+<div class="card col-2">
+    <div>
+        <h3>위장 객체(Camouflage) 검출</h3>
+        <p class="small-text">석사졸업논문 | Scribble 기반 약지도 학습</p>
+        <div class="project-detail">
+            <div class="detail-row">
+                <span class="detail-label">문제</span>
+                <span>Scribble의 빈약한 정보량 및 Attention의 연산량 문제</span>
             </div>
-            <a href="https://github.com/piyakks/polyp_seg_" target="_blank" class="btn-link">GitHub 보러가기 →</a>
-        </div>
-        <div class="card col-2">
-            <div>
-                <h3> LLM API 기반 사용자 작업 도움</h3>
-                <p class="small-text">2025CDE학회 동계 포스터 발표</p>
-                <div class="project-detail">
-                    <div class="detail-row">
-                        <span class="detail-label">문제</span>
-                        <span>작업자 교육과정에서 작업 과정에 문제가 생겨도 타인의 도움 없이 효과적으로 상황을 해결할 수 있는 방법 필요</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">해결</span>
-                        <span>LLM에게 현재 작업 상태와 문제점을 효과적으로 설명하고 그에 따른 피드벡을 받을 수 있는 시스템</span>
-                        <span></span>
-                    </div>
-                </div>
+            <div class="detail-row">
+                <span class="detail-label">해결</span>
+                <span>SAM 활용 유사 주석(Pseudo-label) 생성, Mamba 구조를 활용한 연산 효율성 향상</span>
             </div>
-            <a href="https://github.com/piyakks/manufacturing_with_gpt" target="_blank" class="btn-link">GitHub 보러가기 →</a>
         </div>
-        <div class="card col-2">
-            <div>
-                <h3> 위장 객체(Camouflage) 검출</h3>
-                <p class="small-text">석사졸업논문 | Scribble 기반 약지도 학습</p>
-                <div class="project-detail">
-                    <div class="detail-row">
-                        <span class="detail-label">문제</span>
-                        <span>Scribble의 빈약한 정보량</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">해결</span>
-                        <span>SAM 활용 유사 주석(Pseudo-label) 생성</span>
-                    </div>
-                </div>
+    </div>
+    <a href="https://github.com/piyakks/MaDiCa" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+</div>
+
+<div class="card col-2">
+    <div>
+        <h3>SAM + Mamba Polyp Segmentation</h3>
+        <p class="small-text">개인 프로젝트 | PEFT 기반 경량화</p>
+        <div class="project-detail">
+            <div class="detail-row">
+                <span class="detail-label">문제</span>
+                <span>SAM 전체 미세조정의 높은 비용</span>
             </div>
-            <a href="https://github.com/piyakks/MaDiCa" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+            <div class="detail-row">
+                <span class="detail-label">해결</span>
+                <span>Mamba와 LoRA 결합하여 효율적 학습</span>
+            </div>
         </div>
-        
+    </div>
+    <a href="https://github.com/piyakks/polyp_seg_" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+</div>
+
+<div class="card col-2">
+    <div>
+        <h3>Underwater Image Segmentation with ControlNet</h3>
+        <p class="small-text">학사졸업논문 | ControlNet 제로-컨볼루션 활용</p>
+        <div class="project-detail">
+            <div class="detail-row">
+                <span class="detail-label">문제</span>
+                <span>수중 데이터 부족 및 색상 왜곡</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">해결</span>
+                <span>기존 가중치 유지 + ControlNet 미세조정</span>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/piyakks/Underwater-Image-Object-Segmentation-Model-for-Ocean-Exploration?tab=readme-ov-file" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+</div>
+
+<!-- ================= HCI ================= -->
+<div class="sub-section">
+    <h2>💬 HCI & LLM Systems</h2>
+    <p class="section-desc">RAG, Human-AI Interaction, AR</p>
+</div>
+
+<div class="card col-2">
+    <div>
+        <h3>LLM 기반 사용자 작업 지원 시스템</h3>
+        <p class="small-text">2025 CDE 학회 동계 포스터 발표</p>
+        <div class="project-detail">
+            <div class="detail-row">
+                <span class="detail-label">문제</span>
+                <span>작업 중 문제 발생 시 외부 도움 없이 해결 어려움</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">해결</span>
+                <span>작업 상태를 입력하면 LLM이 피드백 제공</span>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/piyakks/manufacturing_with_gpt" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+</div>
+<div class="card col-2">
+    <div>
+        <h3>RAG 기반 사용자 작업 지원 시스템</h3>
+        <p class="small-text">개인 프로젝트 | FAISS 기반 Retrieval | 포스터 발표 개선 버전</p>
+        <div class="project-detail">
+            <div class="detail-row">
+                <span class="detail-label">문제</span>
+                <span>사전 프롬프팅 방식의 성능 불안정 및 비용 증가</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">해결</span>
+                <span>FAISS 기반 RAG로 검색-생성 구조 개선</span>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/piyakks/manufacturing_with_gpt_rag" target="_blank" class="btn-link">GitHub 보러가기 →</a>
+</div>    
         
 
         <div id="publications" class="section-header">
